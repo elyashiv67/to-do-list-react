@@ -31,6 +31,7 @@ async function addTask(task) {
     const response = await ProtectedFetch(`/tasks`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
+        credentials: 'include',
         body: JSON.stringify(task)
     });
     console.log(response.body);
@@ -58,6 +59,7 @@ async function updateTask(id, task) {
     const response = await ProtectedFetch(`/tasks/${id}`, {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json'},
+        credentials: 'include',
         body: JSON.stringify(task)
     });
     console.log(response);
