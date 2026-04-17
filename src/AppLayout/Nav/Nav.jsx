@@ -7,7 +7,7 @@ function Nav() {
             <div style={{display:'flex',gap:'10px'}}>
                 <NavLink to={"/categories"}>categories</NavLink>
                 <NavLink to={"/login"}>login</NavLink>
-                <NavLink to={"/links"}>links</NavLink>
+                <NavLink to={"/tasks"}>Tasks</NavLink>
             </div>
         </>
     );

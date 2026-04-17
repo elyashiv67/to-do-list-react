@@ -1,5 +1,5 @@
 import {useQuery} from "@tanstack/react-query";
-import {getAllCategories} from "./Category/Categories_api.js";
+import {getAllCategories} from "./Categories_api.js";
 
 function useGetAllCategories(){
     return useQuery({
