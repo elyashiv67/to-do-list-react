@@ -1,17 +1,30 @@
-# React + Vite
+# 📝 React To-Do List (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive, and robust To-Do List web application built with modern React. This repository contains the **frontend client** that connects to a dedicated backend API.
 
-Currently, two official plugins are available:
+*Note: The backend server for this project is located in a separate GitHub repository.*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+This project uses a highly modern React stack:
+* **[React 19](https://react.dev/)** - Core UI Library
+* **[Vite](https://vitejs.dev/)** - Lightning-fast build tool and dev server
+* **[React Router 7](https://reactrouter.com/)** - Client-side routing & Protected Routes
+* **[TanStack Query](https://tanstack.com/query/latest)** - Data fetching, caching, and state management
+* **[js-cookie](https://github.com/js-cookie/js-cookie)** - For JWT token management
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+* **Robust JWT Authentication:** Secure user login utilizing an `AuthContext` and custom `ProtectedRoute` wrappers.
+* **Global API Interceptors:** A custom fetch wrapper that automatically catches `401 Unauthorized` errors to seamlessly log out expired sessions.
+* **CRUD Operations:** Create, Read, Update, and Delete your daily tasks and categories.
+* **Server State Management:** Uses React Query (TanStack) to minimize loading states and perfectly sync frontend data with the backend.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# to-do-list-react
+
+## 🔐 Authentication Flow
+
+1. The user submits their credentials via the `/login` route.
+2. The Node.js backend responds with a JWT cookie.
+3. The app's `AuthContext` detects the token and globally sets the `isAuth` state to true.
+4. The React Router `ProtectedRoute` component intercepts access attempts and grants access to protected pages (like `/tasks`).
+5. All subsequent API calls are routed through a custom `ProtectedFetch` wrapper. If the token expires or is deleted, the wrapper catches the backend's `401 Unauthorized` response, wipes the local cookie, and securely redirects the user to the login screen.
