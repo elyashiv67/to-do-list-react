@@ -16,4 +16,19 @@ async function getAllCategories() {
     return response.json();
 }
 
-export {getAllCategories};
+async function getCategory(id) {
+    const response = await ProtectedFetch(`/categories/${id}`,
+        {
+            method: "GET",
+            headers: {'Content-Type': 'application/json'},
+            credentials: 'include',
+        });
+    console.log(response);
+    if(!response.ok) {
+        console.log(response.status);
+        return
+    }
+    return response.json();
+}
+
+export {getAllCategories , getCategory};
