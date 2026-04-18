@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {useAddTask} from "../Tasks/apiHooksTasks.js";
-import {addTask} from "../Tasks/Tasks_api.js";
+import {useAddTask} from "../apiHooksTasks.js";
 
 function InputsTask() {
 

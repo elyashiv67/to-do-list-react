@@ -11,7 +11,7 @@ function useGetallTasks(){
 }
 
 function useAddTask(task){
-    const quaryClient = useQueryClient();
+    const queryClient = useQueryClient();
 
     const {isPending,mutate:addTaskM} = useMutation({
         mutationFn: addTask,
@@ -20,7 +20,7 @@ function useAddTask(task){
     },
         onSuccess: () => {
            console.log(`Task added successfully!`);
-            quaryClient.invalidateQueries({
+            queryClient.invalidateQueries({
                queryKey: ['allTasks']
            });
         }
