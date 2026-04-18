@@ -1,10 +1,11 @@
 import React from 'react';
 import './Task.css';
-import {useDeleteTask, useUpdateTask} from "../apiHooksTasks.js";
+import {useDeleteTask, useUpdateTask , useMarkAsDone} from "../apiHooksTasks.js";
 
 function Task({data}) {
     const {isDeletingTask, DeleteTask} = useDeleteTask();
     const {isPending, updateTask} = useUpdateTask();
+    const {isWaiting , MarkAsDone} = useMarkAsDone();
 
     function handleBlurUpdate(fieldName, event) {
         const newValue = event.target.value;
@@ -16,6 +17,14 @@ function Task({data}) {
             });
         }
     }
+    function handleMarkAsDone(event) {
+            const newStatus = event.target.checked ? 1 : 0;
+
+            MarkAsDone({
+                id: data.id,
+                isDone: newStatus
+            });
+        }
 
     return (
         <div>
@@ -28,8 +37,8 @@ function Task({data}) {
                        defaultValue={data.description}
                        onBlur={(e) => handleBlurUpdate('description', e)}
                 />
+                <input type={"checkbox"} defaultChecked={data.isDone === 1} onChange={(e)=>{handleMarkAsDone(e)}}/>
                 <p>{data.isDone}</p>
-
                 <button onClick={() => {
                     DeleteTask(data.id);
                 }}>delete
