@@ -1,5 +1,6 @@
 import React from 'react';
-import {useGetAllCategories , useAddCategory} from "./apiHooksCategories.js";
+import './categories.css';
+import {useGetAllCategories} from "./apiHooksCategories.js";
 import Category from "./Category/Category.jsx";
 import InputsForCategory from "./inputsForCategory/inputsForCategory.jsx";
 
@@ -8,16 +9,18 @@ function Categories() {
     console.log(data);
     if (isPending) return <p>Loading...</p>;
     if (isError) return <p>Error: {error.message}</p>;
-    return <>
+    return <div className="categories-card">
         <h1>my categories</h1>
         <InputsForCategory/>
 
-        {
-            data.map((category) => {
-                return <Category key={category.id} data={category}/>
-            })
-        }
-    </>
+        <div className={"categories-wrapper"}>
+            {
+                data.map((category) => {
+                    return <Category key={category.id} data={category}/>
+                })
+            }
+        </div>
+    </div>
 }
 
 export default Categories;

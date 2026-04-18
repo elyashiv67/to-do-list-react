@@ -1,0 +1,33 @@
+.category-card{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem;
+    width: fit-content;
+    background-color: var(--background-lighter);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.category-title{
+    color: var(--text);
+    background-color: var(--background-lighter);
+    border: none;
+    font-size: 1.2rem;
+    width: fit-content;
+}
+
+.category-btn{
+    background-color: var(--secondary);
+    color: var(--text);
+    cursor: pointer;
+    width: 50%;
+    align-self: center;
+    text-align: center;
+    border-radius: 1rem;
+}
+.category-btn:hover{
+    background-color: var(--primary);
+    transform: translateY(-2.2px);
+}
