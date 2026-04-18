@@ -1,19 +1,39 @@
 import React from 'react';
 import './Task.css';
-import {useDeleteTask} from "../apiHooksTasks.js";
+import {useDeleteTask, useUpdateTask} from "../apiHooksTasks.js";
 
 function Task({data}) {
-    const {isDeletingTask , DeleteTask} = useDeleteTask();
+    const {isDeletingTask, DeleteTask} = useDeleteTask();
+    const {isPending, updateTask} = useUpdateTask();
+
+    function handleBlurUpdate(fieldName, event) {
+        const newValue = event.target.value;
+
+        if (newValue !== data[fieldName]) {
+            updateTask({
+                id: data.id,
+                [fieldName]: newValue,
+            });
+        }
+    }
+
     return (
         <div>
             <div className={"wrapper"}>
-                <input className={"title"} type={"text"} defaultValue={data.name} />
-                <input className={"desc"} defaultValue={data.description} />
+                <input className={"title"}
+                       type={"text"} defaultValue={data.name}
+                       onBlur={(e) => handleBlurUpdate('name', e)}
+                />
+                <input className={"desc"}
+                       defaultValue={data.description}
+                       onBlur={(e) => handleBlurUpdate('description', e)}
+                />
                 <p>{data.isDone}</p>
 
-                <button onClick={()=>{
+                <button onClick={() => {
                     DeleteTask(data.id);
-                }}>delete</button>
+                }}>delete
+                </button>
 
             </div>
         </div>

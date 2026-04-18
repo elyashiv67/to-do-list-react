@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
 
     // State is inside the provider component
     const [isAuth, setIsAuth] = useState(() => {
-        const token = Cookies.get('token');
+        const token = Cookies.get('jwt');
         return !!token;
     });
 

@@ -1,5 +1,5 @@
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
-import {addTask, getAllTasks , deleteTask , updateTask , getTaskById} from "./Tasks_api.js";
+import {addTask, getAllTasks , deleteTask , updateTask as updateTaskApi , getTaskById} from "./Tasks_api.js";
 
 function useGetallTasks(){
     return useQuery({
@@ -47,4 +47,21 @@ function useDeleteTask(){
     return {isPending,DeleteTask};
 }
 
-export {useGetallTasks , useAddTask , useDeleteTask};
+function useUpdateTask(){
+    const queryClient = useQueryClient();
+    const {isPending,mutate:updateTask} = useMutation({
+        mutationFn: ({ id, ...taskData }) => updateTaskApi(id, taskData),
+        onError: (error) => {
+            console.log(`Error: ${error.message}`);
+        },
+        onSuccess: () => {
+            console.log(`Task updated successfully!`);
+            queryClient.invalidateQueries({
+                queryKey: ['allTasks']
+            });
+        }
+    });
+    return {isPending,updateTask};
+}
+
+export {useGetallTasks , useAddTask , useDeleteTask , useUpdateTask};
