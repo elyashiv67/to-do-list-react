@@ -2,7 +2,7 @@ import {useState} from 'react';
 import './Tasks.css';
 import Task from "./Task/Task.jsx";
 import {useGetallTasks} from "./apiHooksTasks.js";
-import InputsTask from "../InputsForTask/InputsTask.jsx";
+import InputsTask from "./InputsForTask/InputsTask.jsx";
 import { IoIosAddCircleOutline } from "react-icons/io"; // for now, its good change when doing CSS
 
 function Tasks() {

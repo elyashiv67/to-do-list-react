@@ -1,11 +1,23 @@
 import React from 'react';
+import {useDeleteCategory} from "../apiHooksCategories.js";
+import './category.css';
 
 function Category({data}) {
+    const {isPending, DeleteCategory} = useDeleteCategory();
+
+
     return (
-        <>
-            <h1>{data.name}</h1>
-            <p>{data.user_id}</p>
-        </>
+        <div className="category-card">
+            <input className={"category-title"}
+                   type={"text"} defaultValue={data.name}
+            />
+
+            <span className={"category-btn"} onClick={() => {
+                DeleteCategory(data.id)
+            }}
+            >delete
+            </span>
+        </div>
     );
 }
 

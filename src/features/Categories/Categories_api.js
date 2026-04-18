@@ -31,4 +31,32 @@ async function getCategory(id) {
     return response.json();
 }
 
-export {getAllCategories , getCategory};
+async function addCategory(category) {
+    const response = await ProtectedFetch(`/categories/`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'include',
+        body: JSON.stringify(category),
+    })
+    if(!response.ok) {
+        console.log(response.status);
+        return
+    }
+    return response.json();
+}
+
+async function deleteCategory(id) {
+    const response = await ProtectedFetch(`/categories/${id}`,
+        {
+            method: "DELETE",
+            headers: {'Content-Type': 'application/json'},
+            credentials: 'include',
+        })
+    if(!response.ok) {
+        console.log(response.status);
+        return
+    }
+    return response.json();
+}
+
+export {getAllCategories , getCategory , deleteCategory , addCategory};
