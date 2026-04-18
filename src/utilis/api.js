@@ -5,7 +5,7 @@ async function ProtectedFetch(endpoint , options = {}) {
     const response = await fetch(`${BackUrl}${endpoint}`, options);
 
     if (response.status === 401) {
-        Cookies.remove("token");
+        Cookies.remove("jwt");
         window.location.href = "/login";
         return;
     }
