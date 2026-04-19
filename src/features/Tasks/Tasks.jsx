@@ -19,7 +19,7 @@ function Tasks() {
         setIsAddToggle(!isAddToggle);
     }
     return (
-        <div>
+        <div className={"main-tasks"}>
             <IoIosAddCircleOutline onClick={handleAddToggle}/>
 
             {isAddToggle &&(

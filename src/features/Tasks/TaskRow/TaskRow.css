@@ -1,0 +1,10 @@
+.task-row{
+    cursor: pointer;
+    width: 100%;
+}
+.task-row-card{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    direction: rtl;
+}
