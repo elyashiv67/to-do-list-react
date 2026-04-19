@@ -1,5 +1,4 @@
 import {ProtectedFetch} from "../../utilis/api.js";
-import task from "./Task/Task.jsx";
 
 async function getAllTasks() {
     const response = await ProtectedFetch(`/tasks`,

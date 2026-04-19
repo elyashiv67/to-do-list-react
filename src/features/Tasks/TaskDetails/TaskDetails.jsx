@@ -1,8 +1,8 @@
 import React from 'react';
-import './Task.css';
+import './TaskDetails.css';
 import {useDeleteTask, useUpdateTask , useMarkAsDone} from "../apiHooksTasks.js";
 
-function Task({data}) {
+function TaskDetails({ task , onClose}) {
     const {isDeletingTask, DeleteTask} = useDeleteTask();
     const {isPending, updateTask} = useUpdateTask();
     const {isWaiting , MarkAsDone} = useMarkAsDone();
@@ -10,9 +10,9 @@ function Task({data}) {
     function handleBlurUpdate(fieldName, event) {
         const newValue = event.target.value;
 
-        if (newValue !== data[fieldName]) {
+        if (newValue !== task[fieldName]) {
             updateTask({
-                id: data.id,
+                id: task.id,
                 [fieldName]: newValue,
             });
         }
@@ -21,7 +21,7 @@ function Task({data}) {
             const newStatus = event.target.checked ? 1 : 0;
 
             MarkAsDone({
-                id: data.id,
+                id: task.id,
                 isDone: newStatus
             });
         }
@@ -29,18 +29,19 @@ function Task({data}) {
     return (
         <div>
             <div className={"wrapper"}>
+                <button className="close-btn" onClick={onClose}>X</button>
                 <input className={"title"}
-                       type={"text"} defaultValue={data.name}
+                       type={"text"} defaultValue={task.name}
                        onBlur={(e) => handleBlurUpdate('name', e)}
                 />
                 <input className={"desc"}
-                       defaultValue={data.description}
+                       defaultValue={task.description}
                        onBlur={(e) => handleBlurUpdate('description', e)}
                 />
-                <input type={"checkbox"} defaultChecked={data.isDone === 1} onChange={(e)=>{handleMarkAsDone(e)}}/>
-                <p>{data.isDone}</p>
+                <input type={"checkbox"} defaultChecked={task.isDone === 1} onChange={(e)=>{handleMarkAsDone(e)}}/>
+                <p>{task.isDone}</p>
                 <button onClick={() => {
-                    DeleteTask(data.id);
+                    DeleteTask(task.id);
                 }}>delete
                 </button>
 
@@ -49,4 +50,4 @@ function Task({data}) {
     );
 }
 
-export default Task;
+export default TaskDetails;

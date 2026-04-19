@@ -1,13 +1,16 @@
 import {useState} from 'react';
 import './Tasks.css';
-import Task from "./Task/Task.jsx";
+import TaskDetails from "./TaskDetails/TaskDetails.jsx";
 import {useGetallTasks} from "./apiHooksTasks.js";
 import InputsTask from "./InputsForTask/InputsTask.jsx";
-import { IoIosAddCircleOutline } from "react-icons/io"; // for now, its good change when doing CSS
+import { IoIosAddCircleOutline } from "react-icons/io";
+import TaskRow from "./TaskRow/TaskRow.jsx"; // for now, its good change when doing CSS
 
 function Tasks() {
     const [isAddToggle, setIsAddToggle] = useState(false);
-    const {isPending, isError, data, error}= useGetallTasks();
+    const [selectedTask, setSelectedTask] = useState(null);
+
+    const {isPending, isError, data:tasks, error}= useGetallTasks();
     if (isPending) return <p>Loading...</p>;
     if (isError) return <p>Error: {error.message}</p>;
 
@@ -26,10 +29,16 @@ function Tasks() {
             )}
 
             <div className="tasks_wrapper">
-                {data.map((task) => {
-                    return <Task key={task.id} data={task}/>
+                {tasks.map((task) => {
+                    return <TaskRow key={task.id} task={task} onClick={()=>{setSelectedTask(task)}}/>
                 })}
             </div>
+
+            {selectedTask && (
+                <div className="left-details-panel">
+                    <TaskDetails task={selectedTask} onClose={() => setSelectedTask(null)} />
+                </div>
+            )}
 
         </div>
     );
