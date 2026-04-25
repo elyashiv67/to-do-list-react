@@ -6,6 +6,7 @@
     --text: #E0E1DD;
     --text-dark: #343a40;
     --accent: #717371; /*need to find good one*/
+    --header-height: 80px;
 }
 body{
     background-color: var(--accent);

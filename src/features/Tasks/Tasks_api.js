@@ -69,4 +69,18 @@ async function updateTask(id, task) {
     }
     return response.json();
 }
-export {getAllTasks , addTask , getTaskById, deleteTask , updateTask};
+
+async function markAsDone(id,isDone) {
+    const response = await ProtectedFetch(`/tasks/done/${id}`, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'include',
+        body: JSON.stringify({isDone})
+    });
+    if (!response.ok) {
+        console.log(response.status);
+        return
+    }
+    return response.json();
+}
+export {getAllTasks , addTask , getTaskById, deleteTask , updateTask , markAsDone};

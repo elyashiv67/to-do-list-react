@@ -1,12 +1,14 @@
 .wrapper{
-    background-color: lightblue;
+    position: fixed;
+    background-color: var(--secondary);
     width: fit-content;
-    height: fit-content;
-    padding: 1rem;
-    border-radius: 1.5rem;
+    top: var(--header-height);
+    left: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    direction: rtl;
     gap: 1rem;
 }
 .wrapper input{

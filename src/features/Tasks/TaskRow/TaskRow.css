@@ -1,0 +1,14 @@
+.task-row{
+    cursor: pointer;
+    width: 80%;
+    color: var(--text);
+    background-color: var(--background-lighter);
+    border-radius: 2vh;
+    padding-right: 1vh;
+}
+.task-row-card{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    direction: rtl;
+}
