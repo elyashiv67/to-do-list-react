@@ -1,6 +1,6 @@
 .wrapper{
     position: fixed;
-    background-color: lightblue;
+    background-color: var(--secondary);
     width: fit-content;
     top: var(--header-height);
     left: 0;

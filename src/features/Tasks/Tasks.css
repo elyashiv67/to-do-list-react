@@ -1,7 +1,47 @@
-.tasks_wrapper{
+.tasks_wrapper {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
     justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.layout-tasks {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.left-panel {
+    width: 0;
+    opacity: 0;
+    margin-right: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.left-panel.open {
+    width: 350px;
+    opacity: 1;
+    margin-right: 2rem;
+}
+
+.invisible-overlay {
+    position: fixed;
+    /* Locks to the entire screen */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    /* Covers the background and task list */
+    cursor: default;
+}
+
+.left-details-panel {
+    position: relative;
+    z-index: 20;
 }
