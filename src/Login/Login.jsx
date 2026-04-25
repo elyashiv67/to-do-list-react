@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { loginBtn } from "./Login_api.js";
 import { useNavigate } from "react-router";
-import {useAuth} from "../Router/Context/AuthContext.jsx";
+import { useAuth } from "../Router/Context/AuthContext.jsx";
+import './Login.css';
 
 
 function Login() {
@@ -19,13 +20,20 @@ function Login() {
         }));
     }
 
+    async function handleSubmit(e) {
+        e.preventDefault();
+        await loginBtn({ user }, navigate, setIsAuth)
+    }
+
     return (
-        <div>
-            <div className={"container"}>
+        <div className="login-wrapper">
+            <form className={"login-container"} onSubmit={handleSubmit}>
                 <input type="text" name={"userName"} placeholder="user name" onChange={handleChange} />
                 <input type="password" name={"pass"} placeholder="pass" onChange={handleChange} />
-                <button onClick={() => loginBtn({ user }, navigate, setIsAuth)}>Login</button>
-            </div>
+                <button type={"submit"}>Login</button>
+            </form>
+            <button className={"reg"} onClick={()=> {navigate('/Register')}}>dont have a user?</button>
+
         </div>
     );
 }
