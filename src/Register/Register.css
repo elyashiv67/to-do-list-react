@@ -1,0 +1,90 @@
+.register-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.reg-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    
+    /* The Card Look */
+    padding: 3rem 4rem;
+    background-color: var(--background-lighter);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--primary);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Beautiful Inputs */
+.reg-main input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+    background-color: var(--background);
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reg-main input::placeholder {
+    color: var(--secondary);
+}
+
+.reg-main input:focus {
+    border-color: var(--text);
+    box-shadow: 0 0 0 3px rgba(224, 225, 221, 0.1);
+}
+
+/* Beautiful Button (If you add one!) */
+.reg-main button {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--primary);
+    color: var(--text);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.reg-main button:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.25);
+}
+
+.reg-main button:active {
+    transform: translateY(0);
+}
+
+/* "Already have a user?" Button */
+.back-to-login {
+    background: transparent;
+    border: none;
+    color: var(--secondary);
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.back-to-login:hover {
+    color: var(--text);
+}

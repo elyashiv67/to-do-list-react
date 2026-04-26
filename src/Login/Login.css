@@ -1,0 +1,89 @@
+.login-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    /* The Card Look */
+    padding: 3rem 4rem;
+    background-color: var(--background-lighter);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--primary);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+    background-color: var(--background);
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container input::placeholder {
+    color: var(--secondary);
+}
+
+.login-container input:focus {
+    border-color: var(--text);
+    box-shadow: 0 0 0 3px rgba(224, 225, 221, 0.1);
+}
+
+
+.login-container button {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--primary);
+    color: var(--text);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.login-container button:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.login-container button:active {
+    transform: translateY(0);
+}
+
+/* "Don't have a user?" Button */
+.reg {
+    background: transparent;
+    border: none;
+    color: var(--secondary);
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.reg:hover {
+    color: var(--text);
+}
