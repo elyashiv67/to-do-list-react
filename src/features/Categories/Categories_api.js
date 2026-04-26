@@ -10,7 +10,7 @@ async function getAllCategories() {
     console.log(response);
     if(!response.ok) {
         console.log(response.status);
-        return
+        return [];
     }
     console.log(response);
     return response.json();

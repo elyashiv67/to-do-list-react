@@ -1,14 +1,17 @@
-import {ProtectedFetch} from "../../utilis/api.js";
+import { ProtectedFetch } from "../../utilis/api.js";
 
 async function getAllTasks() {
     const response = await ProtectedFetch(`/tasks`,
-        {method: 'GET',
-        headers: {'Content-Type': 'application/json',
-        },
-        credentials: 'include'});
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include'
+        });
     if (!response.ok) {
         console.log(response.status);
-        return
+        return [];
     }
     console.log(response);
     return response.json();
@@ -16,9 +19,11 @@ async function getAllTasks() {
 
 async function getTaskById(id) {
     const response = await ProtectedFetch(`/tasks/${id}`,
-        {method: 'GET',
-        headers: {'Content-Type': 'application/json',},
-        credentials: 'include'});
+        {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json', },
+            credentials: 'include'
+        });
     console.log(response);
     if (!response.ok) {
         console.log(response.status);
@@ -30,7 +35,7 @@ async function getTaskById(id) {
 async function addTask(task) {
     const response = await ProtectedFetch(`/tasks`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify(task)
     });
@@ -43,9 +48,10 @@ async function addTask(task) {
 }
 
 async function deleteTask(id) {
-    const response = await ProtectedFetch(`/tasks/${id}` ,
-        {method: 'DELETE',
-        headers: {'Content-Type': 'application/json'},
+    const response = await ProtectedFetch(`/tasks/${id}`,
+        {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
         });
     if (!response.ok) {
@@ -58,7 +64,7 @@ async function deleteTask(id) {
 async function updateTask(id, task) {
     const response = await ProtectedFetch(`/tasks/${id}`, {
         method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify(task)
     });
@@ -70,12 +76,12 @@ async function updateTask(id, task) {
     return response.json();
 }
 
-async function markAsDone(id,isDone) {
+async function markAsDone(id, isDone) {
     const response = await ProtectedFetch(`/tasks/done/${id}`, {
         method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({isDone})
+        body: JSON.stringify({ isDone })
     });
     if (!response.ok) {
         console.log(response.status);
@@ -83,4 +89,4 @@ async function markAsDone(id,isDone) {
     }
     return response.json();
 }
-export {getAllTasks , addTask , getTaskById, deleteTask , updateTask , markAsDone};
+export { getAllTasks, addTask, getTaskById, deleteTask, updateTask, markAsDone };

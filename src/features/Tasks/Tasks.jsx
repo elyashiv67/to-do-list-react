@@ -19,6 +19,21 @@ function Tasks() {
         setIsAddToggle(!isAddToggle);
     }
 
+    const NoTasksInServer = [
+        {
+            id: 1,
+            name: "Welcome To Tasks",
+            description: "click on me to update",
+            isDone: 0,
+        },
+        {
+            id: 2,
+            name: "Add Task And Start Explore",
+            description: "click on me to add",
+            isDone: 1,
+        }
+        ];
+
     return (
         <div className={"main-tasks"}>
 
@@ -47,11 +62,15 @@ function Tasks() {
 
 
                 <div className="tasks_wrapper">
-                    {tasks.map((task) => {
+                    {(!tasks || tasks.length === 0) ?(
+                        NoTasksInServer.map((task) => (<TaskRow key={task.id} task={task} onClick={()=>{setSelectedTask(task)}} />))
+                        ) :
+                        tasks.map((task) => {
                         return <TaskRow key={task.id} task={task} onClick={() => {
                             setSelectedTask(task)
                         }}/>
-                    })}
+                    })
+                    }
 
                     <div className={"add-btn"}>
                         <IoIosAddCircleOutline onClick={handleAddToggle}/>
