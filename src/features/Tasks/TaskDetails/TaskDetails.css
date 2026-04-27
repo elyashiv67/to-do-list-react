@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
     position: fixed;
     background-color: var(--secondary);
     width: fit-content;
@@ -11,15 +11,75 @@
     direction: rtl;
     gap: 1rem;
 }
-.wrapper input{
+
+.wrapper input {
     border: none;
     outline: none;
-    background: none;
+    background: transparent;
+    text-align: center;
+    color: var(--text);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    width: 80%;
+    transition: all 0.2s ease;
+    font-family: inherit;
 }
-.title{
-    font-size: 1.5rem;
+
+.wrapper input:hover {
+    background-color: rgba(224, 225, 221, 0.05);
 }
-.desc{
-    font-size: 1rem;
-    justify-self: center;
+
+.wrapper input:focus {
+    background-color: rgba(224, 225, 221, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.desc {
+    font-size: 1.1rem;
+    color: var(--secondary);
+}
+
+.back-arrow {
+    font-size: 1.8rem;
+    color: var(--text);
+    background-color: rgba(224, 225, 221, 0.1);
+    border-radius: 50%;
+    padding: 0.6rem;
+    transform: rotate(180deg);
+    align-self: start;
+    margin: 1rem 2rem 0 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-arrow:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: scale(1.1) rotate(180deg);
+    box-shadow: 0 4px 12px rgba(65, 90, 119, 0.4);
+}
+
+.delete-icon {
+    font-size: 1.8rem;
+    color: #ff4d4d;
+    background-color: rgba(255, 77, 77, 0.1);
+    border-radius: 50%;
+    padding: 0.6rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-icon:hover {
+    background-color: #ff4d4d;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 77, 77, 0.4);
 }

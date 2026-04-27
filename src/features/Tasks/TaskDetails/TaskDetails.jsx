@@ -1,11 +1,13 @@
 import React from 'react';
 import './TaskDetails.css';
-import {useDeleteTask, useUpdateTask , useMarkAsDone} from "../apiHooksTasks.js";
+import { useDeleteTask, useUpdateTask, useMarkAsDone } from "../apiHooksTasks.js";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { MdDeleteOutline } from "react-icons/md";
 
-function TaskDetails({ task , onClose}) {
-    const {isDeletingTask, DeleteTask} = useDeleteTask();
-    const {isPending, updateTask} = useUpdateTask();
-    const {isWaiting , MarkAsDone} = useMarkAsDone();
+function TaskDetails({ task, onClose }) {
+    const { isDeletingTask, DeleteTask } = useDeleteTask();
+    const { isPending, updateTask } = useUpdateTask();
+    const { isWaiting, MarkAsDone } = useMarkAsDone();
 
     function handleBlurUpdate(fieldName, event) {
         const newValue = event.target.value;
@@ -18,32 +20,29 @@ function TaskDetails({ task , onClose}) {
         }
     }
     function handleMarkAsDone(event) {
-            const newStatus = event.target.checked ? 1 : 0;
+        const newStatus = event.target.checked ? 1 : 0;
 
-            MarkAsDone({
-                id: task.id,
-                isDone: newStatus
-            });
-        }
+        MarkAsDone({
+            id: task.id,
+            isDone: newStatus
+        });
+    }
 
     return (
         <div>
             <div className={"wrapper"}>
-                <button className="close-btn" onClick={onClose}>X</button>
+                <IoMdArrowRoundBack className={"back-arrow"} onClick={onClose} />
                 <input className={"title"}
-                       type={"text"} defaultValue={task.name}
-                       onBlur={(e) => handleBlurUpdate('name', e)}
+                    type={"text"} defaultValue={task.name}
+                    onBlur={(e) => handleBlurUpdate('name', e)}
                 />
                 <input className={"desc"}
-                       defaultValue={task.description}
-                       onBlur={(e) => handleBlurUpdate('description', e)}
+                    defaultValue={task.description}
+                    onBlur={(e) => handleBlurUpdate('description', e)}
                 />
-                <input type={"checkbox"} defaultChecked={task.isDone === 1} onChange={(e)=>{handleMarkAsDone(e)}}/>
-                <p>{task.isDone}</p>
-                <button onClick={() => {
+                <MdDeleteOutline className={"delete-icon"} onClick={() => {
                     DeleteTask(task.id);
-                }}>delete
-                </button>
+                }} />
 
             </div>
         </div>

@@ -6,6 +6,15 @@
     --text: #E0E1DD;
     --text-dark: #343a40;
     --accent: #717371; /*need to find good one*/
+
+    --background-hover: #14283F;
+    --background-lighter-hover: #23324C;
+    --primary-hover: #537396;
+    --secondary-hover: #8EA4C0;
+    --text-hover: #FFFFFF;
+    --text-dark-hover: #1A1D20;
+
+
     --header-height: 80px;
 }
 body{

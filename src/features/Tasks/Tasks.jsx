@@ -60,7 +60,6 @@ function Tasks() {
                     )}
                 </div>
 
-
                 <div className="tasks_wrapper">
                     {(!tasks || tasks.length === 0) ?(
                         NoTasksInServer.map((task) => (<TaskRow key={task.id} task={task} onClick={()=>{setSelectedTask(task)}} />))
