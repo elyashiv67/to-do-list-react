@@ -16,7 +16,8 @@ function Tasks() {
 
 
     function handleAddToggle() {
-        setIsAddToggle(!isAddToggle);
+        setSelectedTask(null);
+        setIsAddToggle(true);
     }
 
     const NoTasksInServer = [
@@ -32,14 +33,14 @@ function Tasks() {
             description: "click on me to add",
             isDone: 1,
         }
-        ];
+    ];
 
     return (
         <div className={"main-tasks"}>
 
             <div className={"layout-tasks"}>
 
-                <div className={`left-panel ${selectedTask ? 'open' : ''}`}>
+                <div className={`left-panel ${(selectedTask || isAddToggle) ? 'open' : ''}`}>
 
                     {selectedTask && (
                         <>
@@ -58,26 +59,38 @@ function Tasks() {
 
                         </>
                     )}
+                    {isAddToggle && (
+                        <>
+                            <div
+                                className="invisible-overlay"
+                                onClick={() => setIsAddToggle(false)}
+                            />
+                            <div className="left-details-panel">
+                                <InputsTask onClose={() => setIsAddToggle(false)}/>
+                            </div>
+                        </>
+                    )}
                 </div>
 
                 <div className="tasks_wrapper">
-                    {(!tasks || tasks.length === 0) ?(
-                        NoTasksInServer.map((task) => (<TaskRow key={task.id} task={task} onClick={()=>{setSelectedTask(task)}} />))
+                    {(!tasks || tasks.length === 0) ? (
+                            NoTasksInServer.map((task) => (<TaskRow key={task.id} task={task} onClick={() => {
+                                setSelectedTask(task)
+                            }}/>))
                         ) :
                         tasks.map((task) => {
-                        return <TaskRow key={task.id} task={task} onClick={() => {
-                            setSelectedTask(task)
-                        }}/>
-                    })
+                            return <TaskRow key={task.id} task={task} onClick={() => {
+                                setIsAddToggle(false);
+                                setSelectedTask(task);
+                            }}/>
+                        })
                     }
 
-                    <div className={"add-btn"}>
-                        <IoIosAddCircleOutline onClick={handleAddToggle}/>
-                        {isAddToggle && (
-                            <div className={"addToggle"}>
-                                <InputsTask/>
-                            </div>
-                        )}
+                    <div className={"add-btn"} onClick={handleAddToggle}>
+                        <div className="add-btn-card">
+                            <IoIosAddCircleOutline className={"add-btn-icon"} />
+                            <h2>Add New Task</h2>
+                        </div>
                     </div>
                 </div>
 

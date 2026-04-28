@@ -1,0 +1,119 @@
+.wrapper {
+    position: fixed;
+    background-color: var(--secondary);
+    width: fit-content;
+    top: var(--header-height);
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    direction: rtl;
+    gap: 1rem;
+}
+
+.wrapper input {
+    border: none;
+    outline: none;
+    background: transparent;
+    text-align: center;
+    color: var(--text);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    width: 80%;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+/* Style the placeholder text */
+.wrapper input::placeholder {
+    color: var(--text);
+    opacity: 0.6; /* Slightly faded so you know it's a placeholder */
+}
+
+.wrapper input:hover {
+    background-color: rgba(224, 225, 221, 0.05);
+}
+
+.wrapper input:focus {
+    background-color: rgba(224, 225, 221, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.desc {
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.back-arrow {
+    font-size: 1.8rem;
+    color: var(--text);
+    background-color: rgba(224, 225, 221, 0.1);
+    border-radius: 50%;
+    padding: 0.6rem;
+    transform: rotate(180deg);
+    align-self: start;
+    margin: 1rem 2rem 0 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-arrow:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: scale(1.1) rotate(180deg);
+    box-shadow: 0 4px 12px rgba(65, 90, 119, 0.4);
+}
+
+/* Select Dropdown Styling */
+.category-select {
+    width: 90%;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1.1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.category-select:hover {
+    background-color: rgba(224, 225, 221, 0.05);
+}
+
+.category-select:focus {
+    background-color: rgba(224, 225, 221, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Submit Button */
+.add-submit-btn {
+    margin-top: 2rem;
+    width: 80%;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 1px solid var(--primary);
+    background-color: rgba(65, 90, 119, 0.1);
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-submit-btn:hover {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(65, 90, 119, 0.4);
+}
