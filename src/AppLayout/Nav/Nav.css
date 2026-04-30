@@ -1,0 +1,46 @@
+.nav-list {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--text); /* Brightens text on hover */
+}
+
+/* React Router automatically applies this 'active' class to the current page */
+.nav-link.active {
+    color: var(--primary);
+}
+
+/* Subtle underline animation that grows when you hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%; /* Starts growing from the middle */
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}

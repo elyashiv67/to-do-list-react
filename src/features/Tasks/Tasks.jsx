@@ -4,7 +4,7 @@ import TaskDetails from "./TaskDetails/TaskDetails.jsx";
 import {useGetallTasks} from "./apiHooksTasks.js";
 import InputsTask from "./InputsForTask/InputsTask.jsx";
 import {IoIosAddCircleOutline} from "react-icons/io";
-import TaskRow from "./TaskRow/TaskRow.jsx"; // for now, its good change when doing CSS
+import TaskRow from "./TaskRow/TaskRow.jsx";
 
 function Tasks() {
     const [isAddToggle, setIsAddToggle] = useState(false);

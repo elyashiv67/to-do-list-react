@@ -1,15 +1,13 @@
 import React from 'react';
 import {NavLink} from "react-router";
+import './Nav.css';
 
 function Nav() {
     return (
-        <>
-            <div style={{display:'flex',gap:'10px'}}>
-                <NavLink to={"/categories"}>categories</NavLink>
-                <NavLink to={"/login"}>login</NavLink>
-                <NavLink to={"/tasks"}>Tasks</NavLink>
-            </div>
-        </>
+        <nav className="nav-list">
+            <NavLink className="nav-link" to={"/tasks"}>Tasks</NavLink>
+            <NavLink className="nav-link" to={"/categories"}>Categories</NavLink>
+        </nav>
     );
 }
 
