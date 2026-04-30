@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import './InputsTask.css';
 import {useAddTask} from "../apiHooksTasks.js";
 import {useGetAllCategories} from "../../Categories/apiHooksCategories.js";
+import {IoMdArrowRoundBack} from "react-icons/io";
 
-function InputsTask() {
+function InputsTask({onClose}) {
 
     const [task,setTask] = useState({
         name:"",
@@ -25,12 +27,14 @@ function InputsTask() {
     function addTask1(){
         addTaskM(task);
     }
+
     return (
-        <>
+        <div className={"wrapper"}>
+            <IoMdArrowRoundBack className={"back-arrow"} onClick={onClose} />
             <input name={"user_id"} type="hidden"/>
-            <input name={"name"} type="text" placeholder="name" onChange={handleChange}/>
-            <input name={"description"} type="text" placeholder="description" onChange={handleChange}/>
-            <select name={"category_id"} onChange={handleChange}>
+            <input className={"title"} name={"name"} type="text" placeholder="Task Name" onChange={handleChange}/>
+            <input className={"desc"} name={"description"} type="text" placeholder="Description" onChange={handleChange}/>
+            <select className={"category-select"} name={"category_id"} onChange={handleChange}>
                 {
                     data.map((category)=>(
                         <option key={category.id} value={category.id}>{category.name}</option>
@@ -38,9 +42,9 @@ function InputsTask() {
                 }
             </select>
 
-            <button onClick={addTask1}>add</button>
+            <button className={"add-submit-btn"} onClick={addTask1}>Add Task</button>
 
-        </>
+        </div>
     );
 }
 

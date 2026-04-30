@@ -25,6 +25,12 @@
     font-family: inherit;
 }
 
+/* Style the placeholder text */
+.wrapper input::placeholder {
+    color: var(--text);
+    opacity: 0.6; /* Slightly faded so you know it's a placeholder */
+}
+
 .wrapper input:hover {
     background-color: rgba(224, 225, 221, 0.05);
 }
@@ -43,7 +49,7 @@
 
 .desc {
     font-size: 1.1rem;
-    color: var(--secondary);
+    color: var(--text);
 }
 
 .back-arrow {
@@ -66,20 +72,48 @@
     box-shadow: 0 4px 12px rgba(65, 90, 119, 0.4);
 }
 
-.delete-icon {
-    font-size: 1.8rem;
-    color: #ff4d4d;
-    background-color: rgba(255, 77, 77, 0.1);
-    border-radius: 50%;
-    padding: 0.6rem;
-    margin-top: 1rem;
+/* Select Dropdown Styling */
+.category-select {
+    width: 90%;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1.1rem;
+    text-align: center;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.delete-icon:hover {
-    background-color: #ff4d4d;
+.category-select:hover {
+    background-color: rgba(224, 225, 221, 0.05);
+}
+
+.category-select:focus {
+    background-color: rgba(224, 225, 221, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Submit Button */
+.add-submit-btn {
+    margin-top: 2rem;
+    width: 80%;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 1px solid var(--primary);
+    background-color: rgba(65, 90, 119, 0.1);
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-submit-btn:hover {
+    background-color: var(--primary);
     color: white;
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(255, 77, 77, 0.4);
+    box-shadow: 0 4px 12px rgba(65, 90, 119, 0.4);
 }

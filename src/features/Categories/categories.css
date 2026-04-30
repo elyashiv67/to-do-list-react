@@ -1,7 +1,69 @@
-.categories-card{
-
+.categories-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+    gap: 2rem;
 }
-.categories-wrapper{
+
+.categories-card h1 {
+    color: var(--text);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* The name input from inputsForCategory */
+.name-input {
+    border: none;
+    outline: none;
+    background-color: var(--background-lighter);
+    color: var(--text);
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    width: 250px;
+    font-family: inherit;
+    border-radius: 50px; /* Pill shape */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    margin-right: 1rem; /* Spacing between input and button */
+}
+
+.name-input::placeholder {
+    color: var(--text);
+    opacity: 0.5;
+}
+
+.name-input:focus {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgba(224, 225, 221, 0.05);
+}
+
+/* The add button from inputsForCategory */
+.categories-card button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px; /* Pill shape */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.categories-card button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(65, 90, 119, 0.4);
+}
+
+.categories-wrapper {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 80%;
+    margin-top: 1rem;
 }

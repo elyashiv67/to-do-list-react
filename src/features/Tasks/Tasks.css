@@ -1,3 +1,7 @@
+.main-tasks{
+    margin-top: 1rem;
+}
+
 .tasks_wrapper {
     flex: 1;
     display: flex;
@@ -49,4 +53,45 @@
 .task-row {
     position: relative;
     z-index: 20;
+}
+
+.add-btn{
+    cursor: pointer;
+    width: 80%;
+    color: var(--text);
+    background-color: var(--background-lighter);
+    border-radius: 2vh;
+    padding-right: 1vh;
+    direction: rtl;
+    position: relative;
+    z-index: 20;
+}
+
+.add-btn:hover{
+    background-color: var(--background-lighter-hover);
+}
+
+.add-btn-card{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    direction: rtl;
+    margin-right: 1rem;
+}
+
+.add-btn-icon {
+    font-size: 28px;
+    color: var(--text);
+    margin: auto 0;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+
+.add-btn-icon:hover {
+    background-color: var(--primary);
+    color: var(--background);
+    box-shadow: 0 0 8px rgba(65, 90, 119, 0.4);
+    transform: scale(1.1);
 }

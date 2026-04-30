@@ -1,33 +1,51 @@
-.category-card{
+.category-card {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 2rem;
-    width: fit-content;
+    align-items: center;
+    justify-content: space-between;
     background-color: var(--background-lighter);
-    padding: 2rem;
-    border-radius: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px; /* Sleek pill shape */
+    gap: 1.5rem;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    margin: 0; /* Remove old 2rem margin so they sit nicely in the grid */
 }
 
-.category-title{
+.category-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(65, 90, 119, 0.2);
+    transform: translateY(-2px);
+}
+
+.category-title {
     color: var(--text);
-    background-color: var(--background-lighter);
+    background: transparent;
     border: none;
+    outline: none;
     font-size: 1.2rem;
-    width: fit-content;
+    font-weight: bold;
+    width: 150px; /* Keeps them a consistent size */
+    font-family: inherit;
+    transition: all 0.2s ease;
 }
 
-.category-btn{
-    background-color: var(--secondary);
-    color: var(--text);
-    cursor: pointer;
-    width: 50%;
-    align-self: center;
-    text-align: center;
-    border-radius: 1rem;
+.category-title:focus {
+    color: var(--primary);
 }
-.category-btn:hover{
-    background-color: var(--primary);
-    transform: translateY(-2.2px);
+
+.category-btn {
+    background-color: rgba(255, 77, 77, 0.1);
+    color: #ff4d4d;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.category-btn:hover {
+    background-color: #ff4d4d;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 77, 77, 0.4);
 }

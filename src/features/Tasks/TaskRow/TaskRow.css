@@ -11,4 +11,54 @@
     flex-direction: row;
     gap: 1.5rem;
     direction: rtl;
+    margin-right: 1rem;
+}
+
+.task-row:hover{
+    background-color: var(--background-lighter-hover);
+}
+
+.checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: all 0.2s ease;
+    margin: auto 0;
+}
+
+.checkbox::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--background);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+
+.checkbox:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+
+.checkbox:checked::after {
+    opacity: 1;
+}
+
+.checkbox:hover {
+    box-shadow: 0 0 8px rgba(65, 90, 119, 0.4);
+    transform: scale(1.1);
 }

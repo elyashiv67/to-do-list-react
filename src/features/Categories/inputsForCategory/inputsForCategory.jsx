@@ -1,29 +1,30 @@
-import  {useState} from 'react';
-import {useAddCategory} from "../apiHooksCategories.js";
+import { useState } from 'react';
+import { useAddCategory } from "../apiHooksCategories.js";
 
 function InputsForCategory() {
 
-    const [category,setCategory] = useState({
-        name:""
+    const [category, setCategory] = useState({
+        name: ""
     });
 
 
-    const {isPending,AddCategory} = useAddCategory();
+    const { isPending, AddCategory } = useAddCategory();
 
-    function handleChange(e){
-        const {name,value} = e.target;
-        setCategory((prevData)=> ({...prevData,
-            [name]:value
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setCategory((prevData) => ({
+            ...prevData,
+            [name]: value
         }));
     }
 
-    function addCategory(){
+    function addCategory() {
         AddCategory(category);
     }
     return (
         <>
-            <input name={"user_id"} type="hidden"/>
-            <input name={"name"} type="text" placeholder="name" onChange={handleChange}/>
+            <input name={"user_id"} type="hidden" />
+            <input className={"name-input"} name={"name"} type="text" placeholder="name" onChange={handleChange} />
             <button onClick={addCategory}>add</button>
 
         </>
