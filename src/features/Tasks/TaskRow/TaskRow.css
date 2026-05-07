@@ -6,6 +6,12 @@
     border-radius: 2vh;
     padding-right: 1vh;
 }
+
+.task-row-done{
+    text-decoration: line-through;
+    color: var(--text-dark);
+}
+
 .task-row-card{
     display: flex;
     flex-direction: row;

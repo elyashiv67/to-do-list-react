@@ -15,7 +15,7 @@ function TaskRow({task, onClick}) {
     }
 
     return (
-        <div onClick={onClick} className={"task-row"}>
+        <div onClick={onClick} className={`task-row ${task.isDone === 1 ? 'task-row-done' : ''}`}>
             <div className="task-row-card">
                 <input className={"checkbox"} type={"checkbox"} defaultChecked={task.isDone === 1}
                        onChange={(e) => {
