@@ -46,6 +46,13 @@
     box-shadow: 0 0 0 3px rgba(224, 225, 221, 0.1);
 }
 
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.95rem;
+    margin: 0;
+    text-align: center;
+}
+
 
 .login-container button {
     width: 100%;
@@ -86,4 +93,13 @@
 
 .reg:hover {
     color: var(--text);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 2rem 1.5rem;
+        width: 80%;
+        max-width: none;
+    }
 }

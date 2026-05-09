@@ -12,6 +12,7 @@ function Login() {
         userName: "",
         pass: ""
     });
+    const [errorMsg, setErrorMsg] = useState("");
     function handleChange(e) {
         const { name, value } = e.target;
         setUser((prevData) => ({
@@ -22,7 +23,11 @@ function Login() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        await loginBtn({ user }, navigate, setIsAuth)
+        setErrorMsg(""); // Clear previous errors
+        const success = await loginBtn({ user }, navigate, setIsAuth);
+        if (!success) {
+            setErrorMsg("Access denied. Please check your credentials.");
+        }
     }
 
     return (
@@ -30,6 +35,7 @@ function Login() {
             <form className={"login-container"} onSubmit={handleSubmit}>
                 <input type="text" name={"userName"} placeholder="user name" onChange={handleChange} />
                 <input type="password" name={"pass"} placeholder="pass" onChange={handleChange} />
+                {errorMsg && <p className="error-message">{errorMsg}</p>}
                 <button type={"submit"}>Login</button>
             </form>
             <button className={"reg"} onClick={()=> {navigate('/Register')}}>dont have a user?</button>

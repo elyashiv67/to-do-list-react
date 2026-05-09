@@ -17,8 +17,12 @@
 
     --header-height: 80px;
 }
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 body{
     background-color: var(--accent);
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Extra safety for mobile sideways scrolling */
 }

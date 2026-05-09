@@ -83,3 +83,12 @@
     transform: scale(1.1);
     box-shadow: 0 4px 12px rgba(255, 77, 77, 0.4);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .wrapper {
+        width: 100vw;
+        left: 0;
+        right: 0;
+    }
+}

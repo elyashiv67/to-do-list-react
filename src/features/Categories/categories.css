@@ -67,3 +67,25 @@
     width: 80%;
     margin-top: 1rem;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .categories-wrapper {
+        width: 100%;
+        gap: 1rem;
+    }
+    .name-input {
+        width: 80%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    .categories-card form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .categories-card h1 {
+        font-size: 2rem;
+    }
+}

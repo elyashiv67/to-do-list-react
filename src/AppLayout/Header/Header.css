@@ -42,3 +42,17 @@
     background: rgba(224, 225, 221, 0.1);
     transform: scale(1.1);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 1rem;
+        height: 60px;
+    }
+    .header-logo {
+        font-size: 1.2rem;
+    }
+    .log-out-btn {
+        font-size: 1.5rem;
+    }
+}

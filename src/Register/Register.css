@@ -88,3 +88,12 @@
 .back-to-login:hover {
     color: var(--text);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .reg-main {
+        padding: 2rem 1.5rem;
+        width: 90%;
+        max-width: none;
+    }
+}

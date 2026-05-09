@@ -68,3 +68,14 @@
     box-shadow: 0 0 8px rgba(65, 90, 119, 0.4);
     transform: scale(1.1);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .task-row {
+        width: 95%;
+    }
+    .task-row-card {
+        margin-right: 0.5rem;
+        gap: 1rem;
+    }
+}
