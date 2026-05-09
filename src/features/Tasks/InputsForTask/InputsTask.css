@@ -28,7 +28,8 @@
 /* Style the placeholder text */
 .wrapper input::placeholder {
     color: var(--text);
-    opacity: 0.6; /* Slightly faded so you know it's a placeholder */
+    opacity: 0.6;
+    /* Slightly faded so you know it's a placeholder */
 }
 
 .wrapper input:hover {
@@ -63,6 +64,7 @@
     margin: 1rem 2rem 0 0;
     cursor: pointer;
     transition: all 0.2s ease;
+    box-sizing: content-box;
 }
 
 .back-arrow:hover {

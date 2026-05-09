@@ -25,7 +25,7 @@ function InputsTask({onClose}) {
     }
 
     function addTask1(){
-        addTaskM(task);
+        addTaskM(task , {onSuccess: onClose});
     }
 
     return (

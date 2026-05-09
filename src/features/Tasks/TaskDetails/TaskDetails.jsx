@@ -44,7 +44,7 @@ function TaskDetails({ task, onClose }) {
                     if (!confirm("Are you sure you want to delete this task?")) {
                         return;
                     }
-                    DeleteTask(task.id);
+                    DeleteTask(task.id , {onSuccess: onClose});
                 }} />
 
             </div>

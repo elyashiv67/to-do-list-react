@@ -57,6 +57,7 @@
     margin: 1rem 2rem 0 0;
     cursor: pointer;
     transition: all 0.2s ease;
+    box-sizing: content-box;
 }
 
 .back-arrow:hover {
@@ -75,6 +76,7 @@
     margin-top: 1rem;
     cursor: pointer;
     transition: all 0.2s ease;
+    box-sizing: content-box;
 }
 
 .delete-icon:hover {
