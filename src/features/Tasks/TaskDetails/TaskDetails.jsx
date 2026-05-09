@@ -41,7 +41,6 @@ function TaskDetails({ task, onClose }) {
                     onBlur={(e) => handleBlurUpdate('description', e)}
                 />
                 <MdDeleteOutline className={"delete-icon"} onClick={() => {
-                    e.stopPropagation();
                     if (!confirm("Are you sure you want to delete this task?")) {
                         return;
                     }
