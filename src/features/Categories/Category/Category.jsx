@@ -13,6 +13,9 @@ function Category({data}) {
             />
 
             <span className={"category-btn"} onClick={() => {
+                if(!confirm("Are you sure you want to delete this category?")) {
+                    return;
+                }
                 DeleteCategory(data.id)
             }}
             >delete
